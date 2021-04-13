@@ -11,6 +11,8 @@ namespace HikingTrails.Models
         [Required(ErrorMessage = "Please enter the hiker's first name.")]
         public string FirstName { get; set; }
 
+        public string Bio { get; set; }
+
         public int Age { get; set; }
     }
 }
