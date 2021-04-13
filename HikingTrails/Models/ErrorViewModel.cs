@@ -1,5 +1,3 @@
-using System;
-
 namespace HikingTrails.Models
 {
     public class ErrorViewModel
