@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HikingTrails.Models
@@ -14,9 +10,9 @@ namespace HikingTrails.Models
         {
             entity.HasData(
                new User { UserId = 1, FirstName = "Anthony", LastName = "Morgan" }
-             //  ,
+            //  ,
             //   new Hiker { HikerId = 2, FirstName = "Maria", LastName = "Montessori" },
-             //  new Hiker { HikerId = 3, FirstName = "Jaime", LastName = "Escalante" }
+            //  new Hiker { HikerId = 3, FirstName = "Jaime", LastName = "Escalante" }
             );
         }
 

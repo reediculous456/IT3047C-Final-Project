@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using HikingTrails.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using HikingTrails.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace HikingTrails.Controllers
 {
