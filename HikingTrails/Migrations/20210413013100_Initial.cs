@@ -34,6 +34,21 @@ namespace HikingTrails.Migrations
                 {
                     table.PrimaryKey("PK_User", x => x.UserId);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Trail",
+                columns: new[] { "TrailId", "Location", "TrailName" },
+                values: new object[] { 1, "Milford, OH", "Rowe Woods" });
+
+            migrationBuilder.InsertData(
+                table: "Trail",
+                columns: new[] { "TrailId", "Location", "TrailName" },
+                values: new object[] { 2, "Goshen, OH", "Long Branch Farm" });
+
+            migrationBuilder.InsertData(
+                table: "User",
+                columns: new[] { "UserId", "Age", "FirstName", "LastName" },
+                values: new object[] { 1, 0, "Anthony", "Morgan" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
