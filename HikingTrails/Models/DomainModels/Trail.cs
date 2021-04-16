@@ -8,6 +8,7 @@ namespace HikingTrails.Models
         public int TrailId { get; set; }
 
         [Required(ErrorMessage = "Please enter a trail name.")]
+        [Display(Name = "Trail name")]
         public string TrailName { get; set; }
 
         [Required(ErrorMessage = "Please enter the trail location.")]
