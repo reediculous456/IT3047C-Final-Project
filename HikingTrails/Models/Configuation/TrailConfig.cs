@@ -12,8 +12,8 @@ namespace HikingTrails.Models
         {
             entity.HasData(
                new Trail { TrailId = 1, TrailName = "Rowe Woods", Location = "Milford, OH" },
-               new Trail { TrailId = 2, TrailName = "Long Branch Farm", Location = "Goshen, OH" }
-            //  new Hiker { HikerId = 3, FirstName = "Jaime", LastName = "Escalante" }
+               new Trail { TrailId = 2, TrailName = "Long Branch Farm", Location = "Goshen, OH" },
+               new Trail { TrailId = 3, TrailName = "Whispering Cave", Location = "Logan, OH" }
             );
         }
 
