@@ -56,6 +56,7 @@ namespace HikingTrails.Controllers
             {
                 _context.Add(hiker);
                 await _context.SaveChangesAsync();
+                TempData["UserMessage"] = $"User successfully created!";
                 return RedirectToAction(nameof(Index));
             }
             return View(hiker);
@@ -95,6 +96,7 @@ namespace HikingTrails.Controllers
                 {
                     _context.Update(hiker);
                     await _context.SaveChangesAsync();
+                    TempData["UserMessage"] = $"User successfully edited!";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -126,7 +128,7 @@ namespace HikingTrails.Controllers
             {
                 return NotFound();
             }
-
+            TempData["UserMessage"] = $"User successfully deleted!";
             return View(hiker);
         }
 

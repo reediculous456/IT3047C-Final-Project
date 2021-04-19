@@ -6,6 +6,18 @@
 
 <h1>@ViewData["Title"]</h1>
 
+@{
+    ViewData["Title"] = "Users";
+}
+
+@{
+    string userMessage = TempData?["UserMessage"]?.ToString() ?? "";
+}
+@if (userMessage != "")
+{
+    <div class="alert alert-success">@userMessage</div>
+}
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>

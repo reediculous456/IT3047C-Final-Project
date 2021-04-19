@@ -39,9 +39,8 @@ namespace HikingTrails.Models
                    FirstName = "David",
                    LastName = "Stober",
                    Age = 21,
-                   Bio = "I'm a fourth year IT student with tracks in software development as well as game design and simulation.",
+                   Bio = "I'm a fourth year IT student with tracks in software development as well as game design and simulation."
                }
-
             );
         }
 
