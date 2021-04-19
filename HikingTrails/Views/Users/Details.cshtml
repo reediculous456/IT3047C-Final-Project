@@ -1,4 +1,4 @@
-﻿@model HikingTrails.Models.User
+﻿@model User
 
 @{
     ViewData["Title"] = "User Details";
@@ -35,6 +35,18 @@
             @Html.DisplayFor(model => model.Bio)
         </dd>
     </dl>
+    <h4>Trails</h4>
+    <hr />
+    <ul>
+        @foreach (var hike in Model.Hikes)
+        {
+            <li>
+                <a asp-controller="Trails" asp-action="Details" asp-route-id="@hike.TrailId">
+                    @Html.DisplayFor(modelItem => hike.Trail.TrailName)
+                </a>
+            </li>
+        }
+    </ul>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.UserId">Edit</a> |

@@ -3,11 +3,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HikingTrails.Models
 {
-
-
     internal class TrailConfig : IEntityTypeConfiguration<Trail>
     {
-
         public void Configure(EntityTypeBuilder<Trail> entity)
         {
             entity.HasData(
@@ -16,8 +13,5 @@ namespace HikingTrails.Models
                new Trail { TrailId = 3, TrailName = "Whispering Cave", Location = "Logan, OH" }
             );
         }
-
     }
-
-
 }

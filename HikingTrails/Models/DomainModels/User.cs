@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace HikingTrails.Models
 {
@@ -17,5 +18,7 @@ namespace HikingTrails.Models
         public string Bio { get; set; }
 
         public int Age { get; set; }
+
+        public List<Hike> Hikes { get; set; }
     }
 }

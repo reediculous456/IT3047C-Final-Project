@@ -5,7 +5,6 @@ namespace HikingTrails.Models
 {
     internal class UserConfig : IEntityTypeConfiguration<User>
     {
-
         public void Configure(EntityTypeBuilder<User> entity)
         {
             entity.HasData(
@@ -49,9 +48,7 @@ namespace HikingTrails.Models
                    Age = 21,
                    Bio = "Hello, my name is Robby and I'm a 3rd year IT student in the software development track, aswell as an ACCEND student, doing my MBA. I love hiking, camping and the outdoors in general, my favorite hiking spot around here is Glen Helen Trail up in Yellow Springs. My passion in life is Music and i hope to one day open a music school and create interactive software to both help people learn to play music and to help composers get out of creative block."
                }
-
             );
         }
-
     }
 }

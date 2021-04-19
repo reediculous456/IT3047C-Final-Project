@@ -30,6 +30,8 @@ namespace HikingTrails.Controllers
             }
 
             var hiker = await _context.User
+                .Include(m => m.Hikes)
+                .ThenInclude(m => m.Trail)
                 .FirstOrDefaultAsync(m => m.UserId == id);
             if (hiker == null)
             {
