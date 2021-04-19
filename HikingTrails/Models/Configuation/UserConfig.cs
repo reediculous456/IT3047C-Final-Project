@@ -40,7 +40,16 @@ namespace HikingTrails.Models
                    LastName = "Stober",
                    Age = 21,
                    Bio = "I'm a fourth year IT student with tracks in software development as well as game design and simulation."
+               },
+               new User
+               {
+                   UserId = 5,
+                   FirstName = "Robby",
+                   LastName = "Hoover",
+                   Age = 21,
+                   Bio = "Hello, my name is Robby and I'm a 3rd year IT student in the software development track, aswell as an ACCEND student, doing my MBA. I love hiking, camping and the outdoors in general, my favorite hiking spot around here is Glen Helen Trail up in Yellow Springs. My passion in life is Music and i hope to one day open a music school and create interactive software to both help people learn to play music and to help composers get out of creative block."
                }
+
             );
         }
 
