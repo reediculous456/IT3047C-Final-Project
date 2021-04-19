@@ -13,7 +13,9 @@ namespace HikingTrails.Models
                {
                    UserId = 1,
                    FirstName = "Anthony",
-                   LastName = "Morgan"
+                   LastName = "Morgan",
+                   Age = 54,
+                   Bio = "I'm a non-traditional student in the software development track. I have about 10 classes to go for my Bachelor's Degree. I got my Associate's Degree in Computer Engineering Technology in 1994 from Cincinnati Technical College.",
                },
                new User
                {
