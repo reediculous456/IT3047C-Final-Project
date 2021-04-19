@@ -24,7 +24,23 @@ namespace HikingTrails.Models
                    LastName = "Reed",
                    Age = 20,
                    Bio = "Hello, my name is Wes and I'm a 3rd year IT student in the software and cyber tracks. I'm also in the IT accelerated program for my MSIT, and I play Trombone in the Bearcat Bands.",
-               }
+               },
+               
+
+
+
+
+
+
+                new User
+                {
+                     UserId = 4,
+                     FirstName = "David",
+                     LastName = "Stober",
+                     Age = 21,
+                     Bio = "I'm a fourth year IT student with tracks in software development as well as game design and simulation.",
+                }
+
             );
         }
 
