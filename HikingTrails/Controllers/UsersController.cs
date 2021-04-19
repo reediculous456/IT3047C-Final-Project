@@ -50,7 +50,7 @@ namespace HikingTrails.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HikerId,LastName,FirstName,Age")] User hiker)
+        public async Task<IActionResult> Create([Bind("HikerId,LastName,FirstName,Age,Bio")] User hiker)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace HikingTrails.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,LastName,FirstName,Age")] User hiker)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,LastName,FirstName,Age,Bio")] User hiker)
         {
             if (id != hiker.UserId)
             {
