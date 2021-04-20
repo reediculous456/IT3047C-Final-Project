@@ -1,6 +1,8 @@
 ﻿using HikingTrails.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -77,6 +79,15 @@ namespace HikingTrails.Controllers
             {
                 return NotFound();
             }
+
+            hiker.SelectedHikes = _context.Hike.Where(h => h.UserId == hiker.UserId).Select(h => h.TrailId).ToList();
+            ViewBag.TrailList = _context.Trail.Select(t =>
+                new SelectListItem
+                {
+                    Value = t.TrailId.ToString(),
+                    Text = t.TrailName
+                }).ToList();
+
             return View(hiker);
         }
 
@@ -85,7 +96,7 @@ namespace HikingTrails.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,LastName,FirstName,Age,Bio")] User hiker)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,LastName,FirstName,Age,Bio,Hikes")] User hiker)
         {
             if (id != hiker.UserId)
             {

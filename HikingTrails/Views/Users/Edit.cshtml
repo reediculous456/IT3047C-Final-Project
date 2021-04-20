@@ -1,4 +1,4 @@
-﻿@model HikingTrails.Models.User
+﻿@model User
 
 @{
     ViewData["Title"] = "Edit User";
@@ -32,6 +32,11 @@
                 <label asp-for="Bio" class="control-label"></label>
                 <input asp-for="Bio" class="form-control" />
                 <span asp-validation-for="Bio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedHikes" class="control-label"></label>
+                <select  asp-items="@ViewBag.TrailsList" class="form-control"></select>
+                <span asp-validation-for="SelectedHikes" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HikingTrails.Models
 {
@@ -19,6 +20,9 @@ namespace HikingTrails.Models
 
         public int Age { get; set; }
 
+        [NotMapped]
+        [Display(Name = "Selected Hikes")]
+        public ICollection<int> SelectedHikes { get; set; }
         public List<Hike> Hikes { get; set; }
     }
 }
