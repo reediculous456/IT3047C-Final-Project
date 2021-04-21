@@ -91,7 +91,7 @@ namespace HikingTrails.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,LastName,FirstName,Age,Bio,SelectedHikes,Hikes")] User hiker)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,LastName,FirstName,Age,Bio,SelectedHikes")] User hiker)
         {
             if (id != hiker.UserId)
             {
@@ -102,14 +102,28 @@ namespace HikingTrails.Controllers
             {
                 try
                 {
-                    hiker.Hikes.Clear();
+                    List<Hike> existingHikes = _context.Hike.Where(h => h.UserId == hiker.UserId).ToList();
+
                     foreach (int TrailId in hiker.SelectedHikes)
                     {
-                        hiker.Hikes.Add(new Hike()
+                        if (existingHikes.Where(h => h.TrailId == TrailId).Count() == 0)
                         {
-                            TrailId = TrailId,
-                            UserId = hiker.UserId
-                        });
+                            _context.Hike.Add(new Hike()
+                            {
+                                TrailId = TrailId,
+                                UserId = hiker.UserId
+                            });
+                        }
+                    }
+
+                    
+
+                    foreach (Hike hike in existingHikes)
+                    {
+                        if (hiker.SelectedHikes.Where(TrailId => TrailId == hike.TrailId).Count() == 0)
+                        {
+                            _context.Hike.Remove(hike);
+                        }
                     }
 
                     _context.Update(hiker);
