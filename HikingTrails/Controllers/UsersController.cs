@@ -81,12 +81,7 @@ namespace HikingTrails.Controllers
             }
 
             hiker.SelectedHikes = _context.Hike.Where(h => h.UserId == hiker.UserId).Select(h => h.TrailId).ToList();
-            ViewBag.TrailList = _context.Trail.Select(t =>
-                new SelectListItem
-                {
-                    Value = t.TrailId.ToString(),
-                    Text = t.TrailName
-                }).ToList();
+            ViewBag.Trails = _context.Trail.ToList();
 
             return View(hiker);
         }
@@ -96,7 +91,7 @@ namespace HikingTrails.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,LastName,FirstName,Age,Bio,Hikes")] User hiker)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,LastName,FirstName,Age,Bio,SelectedHikes,Hikes")] User hiker)
         {
             if (id != hiker.UserId)
             {
@@ -107,6 +102,16 @@ namespace HikingTrails.Controllers
             {
                 try
                 {
+                    hiker.Hikes.Clear();
+                    foreach (int TrailId in hiker.SelectedHikes)
+                    {
+                        hiker.Hikes.Add(new Hike()
+                        {
+                            TrailId = TrailId,
+                            UserId = hiker.UserId
+                        });
+                    }
+
                     _context.Update(hiker);
                     await _context.SaveChangesAsync();
                     TempData["UserMessage"] = $"User successfully edited!";
