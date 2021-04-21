@@ -1,13 +1,19 @@
-﻿namespace HikingTrails.Models
+﻿using System;
+
+namespace HikingTrails.Models
 {
     public class Hike
     {
         public int HikeId { get; set; }
 
         public int TrailId { get; set; }    // FK 
-        public Trail Trail { get; set; }
-
+        public string Trailname { get; set; }
+        
         public int UserId { get; set; }     // FK
-        public User User { get; set; }
+        public string Username { get; set; }
+
+        public DateTime Date { get; set; }
+
+       
     }
 }
