@@ -46,6 +46,7 @@ namespace HikingTrails.Controllers
         // GET: Hikers/Create
         public IActionResult Create()
         {
+            ViewBag.Trails = _context.Trail.ToList();
             return View();
         }
 
@@ -54,11 +55,21 @@ namespace HikingTrails.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HikerId,LastName,FirstName,Age,Bio")] User hiker)
+        public async Task<IActionResult> Create([Bind("HikerId,LastName,FirstName,Age,Bio,SelectedHikes")] User hiker)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(hiker);
+                await _context.SaveChangesAsync();
+
+                foreach (int TrailId in hiker.SelectedHikes)
+                {
+                    _context.Hike.Add(new Hike()
+                    {
+                        TrailId = TrailId,
+                        UserId = hiker.UserId
+                    });
+                }
                 await _context.SaveChangesAsync();
                 TempData["UserMessage"] = $"User successfully created!";
                 return RedirectToAction(nameof(Index));
@@ -116,7 +127,7 @@ namespace HikingTrails.Controllers
                         }
                     }
 
-                    
+
 
                     foreach (Hike hike in existingHikes)
                     {
